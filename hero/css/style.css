@@ -1,0 +1,477 @@
+:root {
+    /* Change the following 5 things :) */
+
+    /* 1) login background image - make this a gorgeous photo from the customer's site or unsplash */
+    --login-bg-image: url('https://images.unsplash.com/photo-1557682233-43e671455dfa');
+
+    /* 2) login logo - image above the login form */
+    --login-logo-image: url('https://zuar.com/img/logo.svg');
+
+    /* 3) primary color - main color from customers brand - applies to login button, outlines etc. */
+    --color-primary: #fa225b;
+
+    /* 4) main page header logo image */
+    --header-logo-image: url('https://zuar.com/img/logo.svg');
+
+    /* 5) main page header background color */
+    --header-bg-color: #333;
+
+
+    /* --- The following settings are optional --- */
+
+    /* Global colors. Affects all pages */
+    --color-zuar-brand: #fa225b;
+    --color-text: #fff;
+
+    /* Login page settings */
+    --login-bg-color: #fff; /* eg; #FFF - Ignored if login-bg-image is set */
+    --login-form-bg-color: rgba(0, 0, 0, 0.6); /* #333333 OR rgba(255, 255, 255, 0.9) for semi-transparent (https://www.hexcolortool.com/) */
+    --login-bg-video-display: none; /* Set to block and enter url to video below */
+
+    /* application page settings */
+    --card-title-bg-color: #333;
+}
+
+/*
+=== Here are the default settings above (for reference) ===
+    --login-bg-image: url('https://images.unsplash.com/photo-1557682233-43e671455dfa');
+    --login-logo-image: url('https://zuar.com/img/logo.svg');
+    --color-primary: #fa225b;
+    --header-logo-image: url('https://zuar.com/img/logo.svg');
+    --header-bg-color: #333;
+    --color-zuar-brand: #fa225b;
+    --color-text: #fff;
+    --login-bg-color: #fff;
+    --login-form-bg-color: rgba(0, 0, 0, 0.6);
+    --login-bg-video-display: none;
+    --card-title-bg-color: #333;
+*/
+
+
+html, body {
+    height: 100%;
+}
+
+/*
+ * Login page styles
+ *
+ */
+body.login {
+    color: var(--color-text);
+    background-position: center;
+    background-size: cover;
+
+    background-image: var(--login-bg-image);
+    background-color: var(--login-bg-color);
+}
+
+.login-logo-image-wrapper {
+    background-image: var(--login-logo-image);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 60px;
+    margin-bottom: 25px;
+}
+
+.login-bg-video {
+  display: var(--login-bg-video-display);
+}
+
+.helper-text {
+    text-align: center;
+}
+
+.form-control {
+    min-height: 41px;
+    background: #fff;
+    box-shadow: none !important;
+    border-color: #e3e3e3;
+}
+
+.form-control:focus {
+    border-color: var(--color-primary);
+}
+
+.form-control, .btn {
+    border-radius: 2px;
+}
+
+.login-form {
+    width: 350px;
+    margin: 0 auto;
+    padding: 100px 0 30px;
+    opacity: var(--login-form-opacity);
+}
+
+.login-form form {
+    color: var(--color-text);
+    background-color: var(--login-form-bg-color);
+    border-radius: 2px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    position: relative;
+}
+
+.btn:hover, .login-form .btn:focus, .login-form .btn:active {
+    opacity: 1;
+    background-color: var(--color-primary);
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    background-color: black;
+    border-color: black;
+}
+
+.powered-by {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: .9em;
+    font-style: italic;
+    color: gray;
+    /* Uncomment this and move in login.mako for bottom of page positioning
+    color: #333333;
+    position: absolute;
+    bottom: 0;
+    */
+}
+
+.powered-by a {
+    font-weight: bold;
+    color: var(--color-zuar-brand);
+}
+
+/*
+ * Application Styles
+ *
+ */
+body.app {
+    background-color: #e9ecef;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.navbar {
+  background-color: var(--header-bg-color);
+}
+
+.navbar-brand {
+    background-image: var(--header-logo-image);
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    min-width: 200px;
+    height: 40px;
+}
+
+.navbar button, .navbar i {
+    color: var(--color-text);
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar i {
+    margin-right: 10px;
+}
+
+.z-nav-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+
+@media (max-width: 576px) {
+  .z-nav-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.share-link {
+    margin:10px;
+    white-space:nowrap;
+}
+
+.btn {
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    background-color: var(--color-primary);
+    opacity: 1;
+}
+
+.btn.btn-primary, .btn.btn-primary:active {
+  background-color: var(--color-primary);
+}
+
+.btn.btn-secondary, .btn.btn-secondary:active {
+  background-color: white;
+  color: var(--color-primary);
+}
+
+.btn-link {
+    color: white;
+    margin-bottom: 0;
+}
+
+.dropdown-item:active {
+    background-color: var(--color-primary);
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn-link:hover {
+    text-decoration: none;
+    opacity: .92;
+    outline: none;
+    box-shadow: none;
+}
+
+.display-topleft {
+    color: white;
+    background-color: var(--card-title-bg-color);
+    position: absolute;
+    top: 0;
+    padding: 8px 16px;
+}
+
+.active .display-topleft {
+    background-color: var(--color-primary);
+}
+
+button:focus {
+    outline: none;
+}
+
+.vizbutton.hidden {
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    margin-right: 0;
+}
+
+.vizbutton.hidden::after { /* hide dropdown arrows too */
+    display: none;
+}
+
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1366px;
+    }
+}
+
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+
+.content-wrapper {
+  position: relative;
+}
+
+.viz-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(0);
+}
+
+.viz-wrapper.hidden {
+    overflow: hidden;
+    transform: translateX(-100vw);
+}
+.viz-wrapper.hidden>* {
+    width: 100vw !important;
+    height: calc(100vh - 56px) !important;
+}
+
+#vizContainer {
+    width: 100vw;
+    min-height: calc(100vh - 56px) !important;
+    position: relative;
+    -webkit-transition: width .4s ease-in-out;
+    -moz-transition: width .4s ease-in-out;
+    -o-transition: width .4s ease-in-out;
+    transition: width .4s ease-in-out;
+
+    -webkit-transition: height .4s ease-in-out;
+    -moz-transition: height .4s ease-in-out;
+    -o-transition: height .4s ease-in-out;
+    transition: height .4s ease-in-out;
+}
+
+#vizContainer iframe {
+    margin: 0 auto;
+}
+
+.thumbnail {
+    margin-bottom: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.thumbnail.active {
+    border: solid 2px var(--color-primary);
+}
+
+.update-password-error.hidden {
+    display: none;
+}
+
+/*
+ * Favorite star
+ */
+.star__wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.star {
+  display: inline-block;
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+  color: #ededed;
+}
+
+.star:before {
+  content: '\2606';
+}
+
+.star:hover,
+.star.active:before {
+  color: #fff07a;
+}
+
+.star.active:before {
+  content: '\2605';
+}
+
+/*
+ * Spinkit loader
+ */
+#loader {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+#loader.hidden {
+    display: none;
+}
+
+.sk-cube-grid {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+}
+
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: var(--color-primary);
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1); 
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  } 
+}
+
+/*
+ * Embedded
+ * These rules override the default style for SF
+ */
+body.login.embedded {
+    background: white;
+}
+
+.embedded .login-form {
+    padding: 25px 0;
+}
+
+.embedded .login-form form {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.embedded .login-form .login-logo-image-wrapper {
+    display: none;
+}
+
+.embedded .login-form p {
+    color: gray;
+}
+
+.embedded .login-form p.helper-text {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+/*
+ * User Manage
+ */
+ .user-list__widget-wrapper table td:last-of-type{
+    white-space: nowrap;
+ }
