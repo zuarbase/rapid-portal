@@ -103,7 +103,7 @@
     const getFavorites = () => {
         this.favoritesPromise = this.favoritesPromise || init().then(() => {
             let favorites = [];
-            let url = `${this.BASE_URL}/sites/${this.about.tableau_server.site_id}/favorites/${this.about.payload.id}`;
+            let url = `${this.BASE_URL}/sites/${this.about.tableau_server.site_id}/favorites/${this.about.tableau_site_user_id}`;
             return get(url, {responseType: 'xml'}).then(function (res) {
                 res.querySelectorAll('favorite').forEach(favoriteNode => {
                     favorites.push(favoriteNode.getAttribute('label'));    
@@ -119,7 +119,7 @@
     }
 
     const addViewToFavorites = (viewId) => {
-        let url = `${this.BASE_URL}/sites/${this.about.tableau_server.site_id}/favorites/${this.about.payload.id}`;
+        let url = `${this.BASE_URL}/sites/${this.about.tableau_server.site_id}/favorites/${this.about.tableau_site_user_id}`;
         let payload = `<tsRequest><favorite label="${viewId}"><view id="${viewId}"/></favorite></tsRequest>`;
         return new Promise((resolve, reject) => {
             put(url, {contentType: 'application/xml', responseType: 'xml', payload})
@@ -133,7 +133,7 @@
     }
 
     const deleteViewFromFavorites = (viewId) => {
-        let url = `${this.BASE_URL}/sites/${this.about.tableau_server.site_id}/favorites/${this.about.payload.id}/views/${viewId}`;
+        let url = `${this.BASE_URL}/sites/${this.about.tableau_server.site_id}/favorites/${this.about.tableau_site_user_id}/views/${viewId}`;
         return new Promise((resolve, reject) => {
             del(url, {contentType: 'application/xml', responseType: 'xml'})
                 .then(response => {
@@ -266,7 +266,7 @@
     }
 
     const updatePassword = (password) => {
-        let uri = `/api/${TABLEAU_API_VERSION}/sites/${this.about.tableau_server.site_id}/users/${this.about.payload.id}`;
+        let uri = `/api/${TABLEAU_API_VERSION}/sites/${this.about.tableau_server.site_id}/users/${this.about.tableau_site_user_id}`;
         let payload = `<tsRequest><user password="${password}"/></tsRequest>`;
         return new Promise((resolve, reject) => {
             put(uri, {contentType: 'application/xml', responseType: 'xml', payload})
